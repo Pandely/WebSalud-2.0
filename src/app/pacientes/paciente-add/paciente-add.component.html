@@ -1,0 +1,45 @@
+<div class="card mt-3">
+  <div class="card-body">
+      <form #pacienteForm="ngForm" (ngSubmit)="onSubmit(pacienteForm)">
+          <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="pacienteService.selectPaciente.$key">
+          <div class="form-group">
+            <input type="text" class="form-control" name="codigo" #name="ngModel"
+              [(ngModel)]="pacienteService.selectPaciente.codigo"
+             placeholder="Codigo">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="nombre" #name="ngModel"
+              [(ngModel)]="pacienteService.selectPaciente.nombre"
+              placeholder="Nombre">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="email" #name="ngModel"
+              [(ngModel)]="pacienteService.selectPaciente.email"
+              placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="diagnostico" #name="ngModel"
+              [(ngModel)]="pacienteService.selectPaciente.diagnostico"
+              placeholder="Diagnostico">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="estadia" #name="ngModel"
+              [(ngModel)]="pacienteService.selectPaciente.estadia"
+              placeholder="Estadia">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="tipo" #name="ngModel"
+              [(ngModel)]="pacienteService.selectPaciente.tipo"
+              placeholder="Tipo">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">
+                <i class="fas fa-plus-circle"></i> Agregar
+            </button>
+            <button class="btn btn-secondary" type="reset" (click)="resetForm(pacienteForm)">
+                <i class="fas fa-sync-alt"></i> Resetear
+            </button>
+          </div>
+        </form>
+  </div>
+</div>

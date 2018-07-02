@@ -1,0 +1,35 @@
+<div class="card mt-3">
+  <div class="card-body">
+    <h4 class="text-center">Lista de Pacientes</h4>
+    <table class="table table-sm table-hover">
+      <thead>
+        <tr>
+          <th>CODIGO</th>
+          <th>NOMBRE</th>
+          <th>EMAIL</th>
+          <th>DIAGNOSTICO</th>
+          <th>ESTADIA</th>
+          <th>TIPO</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paciente of pacienteList">
+          <td>{{paciente.codigo}}</td>
+          <td>{{paciente.nombre}}</td>
+          <td>{{paciente.email}}</td>
+          <td>{{paciente.diagnostico}}</td>
+          <td>{{paciente.estadia}}</td>
+          <td>{{paciente.tipo}}</td>
+          <td>
+            <a class="btn btn-secondary text-white" (click)="onEdit(paciente)">
+                <i class="far fa-edit"></i>
+            </a>
+            <a class="btn btn-danger text-white" (click)="onDelete(paciente.$key)">
+                <i class="fas fa-trash-alt"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
