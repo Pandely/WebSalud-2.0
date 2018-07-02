@@ -3,6 +3,30 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { environment } from '../environments/environment';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { AuthService } from './services/auth.service';
+
+import { PacientesComponent } from './pacientes/pacientes.component';
+import { DoctoresComponent } from './doctores/doctores.component';
+import { PacienteAddComponent } from './pacientes/paciente-add/paciente-add.component';
+import { PacienteListComponent } from './pacientes/paciente-list/paciente-list.component';
+import { DoctorAddComponent } from './doctores/doctor-add/doctor-add.component';
+import { DoctorListComponent } from './doctores/doctor-list/doctor-list.component';
+import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { DoctorService } from './services/doctor.service';
+
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { InstitucionalComponent } from './institucional/institucional.component';
@@ -20,27 +44,6 @@ import { MarcolegalComponent } from './institucional/marcolegal/marcolegal.compo
 import { RedsaludComponent } from './directorio/redsalud/redsalud.component';
 import { AseguramientoComponent } from './organo/aseguramiento/aseguramiento.component';
 import { DocumentosgestionComponent } from './transparencia/documentosgestion/documentosgestion.component';
-
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { environment } from '../environments/environment';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
-/**import { CommonModule } from 'angularfire2';**/
-
-import { PacientesComponent } from './pacientes/pacientes.component';
-import { DoctoresComponent } from './doctores/doctores.component';
-import { PacienteAddComponent } from './pacientes/paciente-add/paciente-add.component';
-import { PacienteListComponent } from './pacientes/paciente-list/paciente-list.component';
-import { DoctorAddComponent } from './doctores/doctor-add/doctor-add.component';
-import { DoctorListComponent } from './doctores/doctor-list/doctor-list.component';
-import { AdminComponent } from './admin/admin.component';
-import { LoginComponent } from './login/login.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { FormsModule } from '@angular/forms';
-import { DoctorService } from './services/doctor.service';
 
 @NgModule({
   declarations: [
@@ -76,14 +79,15 @@ import { DoctorService } from './services/doctor.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule, //Formularios
+    HttpModule,
     AngularFireModule.initializeApp(environment.firebase),//Conexion con Firebase
     AngularFireAuthModule,//Autentificacion con Firebase
     AngularFirestoreModule,
-    /**CommonModule,//Toastr: mensajes emergentes**/
+    CommonModule,//Toastr: mensajes emergentes
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [DoctorService],
+  providers: [DoctorService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

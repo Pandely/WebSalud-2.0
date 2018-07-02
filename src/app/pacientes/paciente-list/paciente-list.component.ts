@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Paciente } from '../../models/paciente';
 import { PacienteService } from '../../services/paciente.service';
+import { element } from 'protractor';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

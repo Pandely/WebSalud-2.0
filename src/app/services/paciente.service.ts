@@ -35,7 +35,7 @@ export class PacienteService {
         diagnostico: paciente.diagnostico,
         estadia: paciente.estadia,
         tipo: paciente.tipo,
-    });
+    })
   }
 
   deletePacientes($Key: string){
